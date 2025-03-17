@@ -50,7 +50,7 @@ $aModule = [
 	    ['group' => 'novalnetPaymentSettingsInvoice','name' => 'novalnetInvoicePaymentAction', 'type' => 'select','value'  =>'', 'position' => 9],
 		['group' => 'novalnetPaymentSettingsPaypal','name' => 'novalnetPaypalTestMode', 'type' => 'bool', 'value' => 'false', 'position' => 10],
 		['group' => 'novalnetPaymentSettingsPaypal','name' => 'novalnetPaypalPaymentAction', 'type' => 'select','value'  =>'','position' => 11]
-]
+],
         'events'    => [
            'onActivate'    => \Novalnet\Core\Events::class.'::onActivate',
            'onDeactivate'  => \Novalnet\Core\Events::class.'::onDeactivate',
