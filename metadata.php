@@ -45,6 +45,17 @@ $aModule = [
             ['group' => 'novalnetGlobalSettingsWebhook','name'  => 'sWebhooksUrl',         'type' => 'str',    'value' => '',      'position' => 4],
             ['group' => 'novalnetGlobalSettingsWebhook','name'  => 'blWebhookNotification','type' => 'bool',   'value' => 'false', 'position' => 5],
             ['group' => 'novalnetGlobalSettingsWebhook','name'  => 'blWebhookSendMail',    'type' => 'str',    'value' => '',      'position' => 6],
+	    ['group' => 'novalnetPaymentSettingsInvoice','name' => 'novalnetInvoiceTestMode', 'type' => 'bool', 'value' => 'false', 'position' => 7],
+	    ['group' => 'novalnetPaymentSettingsInvoice','name' => 'novalnetInvoiceDueDate', 'type' => 'str', 'value' => '', 'position' => 8],
+	    ['group' => 'novalnetPaymentSettingsInvoice','name' => 'novalnetInvoicePaymentAction', 'type' => 'select','value'  =>[
+		['value' => 'capture', 'name' => 'Capture'],
+                ['value' => 'authorize', 'name' => 'Authorize']], 'position' => 9],
+	['group' => 'novalnetPaymentSettingsPaypal','name' => 'novalnetPaypalTestMode', 'type' => 'bool', 'value' => 'false', 'position' => 10],
+	['group' => 'novalnetPaymentSettingsPaypal','name' => 'novalnetPaypalPaymentAction', 'type' => 'select','value'  =>[
+		['value' => 'capture', 'name' => 'Capture'],
+                ['value' => 'authorize', 'name' => 'Authorize']], 'position' => 11],
+                
+		
         ],
         'events'    => [
            'onActivate'    => \Novalnet\Core\Events::class.'::onActivate',
