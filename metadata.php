@@ -53,6 +53,6 @@ $aModule = [
 ],
         'events'    => [
            'onActivate'    => \Novalnet\Core\Events::class.'::onActivate',
-           'onDeactivate'  => \Novalnet\Core\Events::class.'::onDeactivate',
+           'onDeactivate'  => \Novalnet\Core\Events::class.'::onDeactivate'
         ]
 ];
