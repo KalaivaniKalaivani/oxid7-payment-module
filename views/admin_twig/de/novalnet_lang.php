@@ -19,4 +19,11 @@ $aLang = [
     'HELP_MODULE_blWebhookSendMail'                     => 'E-Mail-Benachrichtigungen werden an diese E-Mail-Adresse gesendet',
     'SHOP_MODULE_sWebhooksUrl'                          => 'Benachrichtigungs- / Webhook-URL',
     'HELP_SHOP_MODULE_sWebhooksUrl'                     => 'Eine Benachrichtigungs- / Webhook-URL ist erforderlich, um die Datenbank / das System des Händlers mit dem Novalnet-Account synchronisiert zu halten (z.B. Lieferstatus). Weitere Informationen finden Sie in der Installationsanleitung'
-  ];
+    'SHOP_MODULE_GROUP_novalnetPaymentSettingsInvoice'  => 'Invoice',
+    'SHOP_MODULE_novalnetInvoiceTestMode'              => 'Test Mode',
+    'SHOP_MODULE_novalnetInvoiceDueDate'               => 'Due Date',
+    'SHOP_MODULE_novalnetInvoicePaymentAction'         => 'Payment Action',
+    'SHOP_MODULE_GROUP_novalnetPaymentSettingsPaypal'  => 'PayPal',
+    'SHOP_MODULE_novalnetPaypalTestMode'              => 'Test Mode',
+    'SHOP_MODULE_novalnetPaypalPaymentAction'         => 'Payment Action'
+];
