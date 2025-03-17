@@ -26,7 +26,14 @@ class Events
      */
     public function deactivate()
     {
-        $this->dropCustomTables();
+        $oPayment = oxNew(Payment::class);
+        $aPayments = ['novalnetinvoice', 'novalnetpaypal'];
+        foreach ($aPayments as $aPayment) {
+            if ($oPayment->load($aPayment)) {
+                $oPayment->oxpayments__oxactive = new \OxidEsales\Eshop\Core\Field(0);
+                $oPayment->save();
+            }
+        }
     }
   public static function createNovalnetTables(){
     $db = DatabaseProvider::getDb();
@@ -57,7 +64,7 @@ class Events
                 'OXDESC_DE'     => 'Rechnung',
                 'OXDESC_EN'     => 'Invoice',
                 'OXLONGDESC_DE' => ' Sie erhalten eine E-Mail mit den Bankdaten von Novalnet, um die Zahlung abzuschließen ',
-                'OXLONGDESC_EN' => 'You will receive an e-mail with the Novalnet account details to complete the payment'
+                'OXLONGDESC_EN' => 'You will receive an e-mail with the Novalnet account details to complete the payment',
                 'OXSORT'        => '1'
             ],
 
@@ -66,9 +73,28 @@ class Events
               'OXDESC_DE'     => 'PayPal',
               'OXDESC_EN'     => 'PayPal',
               'OXLONGDESC_DE' => ' Sie werden zu PayPal weitergeleitet. Um eine erfolgreiche Zahlung zu gewährleisten, darf die Seite nicht geschlossen oder neu geladen werden, bis die Bezahlung abgeschlossen ist ',
-              'OXLONGDESC_EN' => 'You will be redirected to PayPal. Please don\'t close or refresh the browser until the payment is completed'
+              'OXLONGDESC_EN' => 'You will be redirected to PayPal. Please don\'t close or refresh the browser until the payment is completed',
+               'OXSORT'        => '2'
             ]
         ];
+
+      $oLangArray = \OxidEsales\Eshop\Core\Registry::getLang()->getLanguageArray();
+      $oPayment = oxNew(Payment::class);
+      foreach ($oLangArray as $oLang) {
+          foreach ($aPayments as $aPayment) {
+              $oPayment->setId($aPayment['OXID']);
+              $oPayment->setLanguage($oLang->id);
+              $sLangAbbr = in_array($oLang->abbr, ['de', 'en']) ? $oLang->abbr : 'en';
+              $oPayment->oxpayments__oxid = new Field($aPayment['OXID']);
+              $oPayment->oxpayments__oxtoamount    = new Field('1000000');
+              $oPayment->oxpayments__oxaddsumrules = new Field('31');
+             $oPayment->oxpayments__oxtspaymentid = new Field('');
+             $oPayment->oxpayments__oxdesc     = new Field($aPayment['OXDESC_'. strtoupper($sLangAbbr)]);
+             $oPayment->oxpayments__oxlongdesc = new Field($aPayment['OXLONGDESC_'. strtoupper($sLangAbbr)]);
+             $oPayment->oxpayments__oxsort = new Field($aPayment['OXSORT']);
+             $oPayment->save();
+          }
+      }
   }
     
 }
