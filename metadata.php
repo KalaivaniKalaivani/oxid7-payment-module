@@ -34,8 +34,8 @@ $aModule = [
         'url'         => 'https://www.novalnet.de',
         'email'       => 'technic@novalnet.de',
         'extend'      => [
-            \OxidEsales\Eshop\Core\ViewConfig::class                                 => Novalnet\Core\ViewConfig::class,
-		],
+            \OxidEsales\Eshop\Core\ViewConfig::class  => Novalnet\Core\ViewConfig::class,
+	],
 
         'settings'      => [
             // Global configuration settings
@@ -47,12 +47,12 @@ $aModule = [
             ['group' => 'novalnetGlobalSettingsWebhook','name'  => 'blWebhookSendMail',    'type' => 'str',    'value' => '',      'position' => 6],
 	    ['group' => 'novalnetPaymentSettingsInvoice','name' => 'novalnetInvoiceTestMode', 'type' => 'bool', 'value' => 'false', 'position' => 7],
 	    ['group' => 'novalnetPaymentSettingsInvoice','name' => 'novalnetInvoiceDueDate', 'type' => 'str', 'value' => '', 'position' => 8],
-	    ['group' => 'novalnetPaymentSettingsInvoice','name' => 'novalnetInvoicePaymentAction', 'type' => 'select','value'  =>'', 'position' => 9],
-		['group' => 'novalnetPaymentSettingsPaypal','name' => 'novalnetPaypalTestMode', 'type' => 'bool', 'value' => 'false', 'position' => 10],
-		['group' => 'novalnetPaymentSettingsPaypal','name' => 'novalnetPaypalPaymentAction', 'type' => 'select','value'  =>'','position' => 11]
-],
+	    ['group' => 'novalnetPaymentSettingsInvoice','name' => 'novalnetInvoicePaymentAction', 'type' => 'select', 'value'  =>'', 'position' => 9],
+	    ['group' => 'novalnetPaymentSettingsPaypal','name' => 'novalnetPaypalTestMode', 'type' => 'bool', 'value' => 'false', 'position' => 10],
+	    ['group' => 'novalnetPaymentSettingsPaypal','name' => 'novalnetPaypalPaymentAction', 'type' => 'select', 'value'  =>'', 'position' => 11]
+      ],
         'events'    => [
            'onActivate'    => \Novalnet\Core\Events::class.'::onActivate',
-           'onDeactivate'  => \Novalnet\Core\Events::class.'::onDeactivate'
-        ]
+           'onDeactivate'  => \Novalnet\Core\Events::class.'::onDeactivate',
+        ],
 ];
