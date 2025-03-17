@@ -18,4 +18,12 @@ $aLang = [
     'HELP_SHOP_MODULE_blWebhookNotification'            => 'Enable this to test the Novalnet Notification / Webhook URL manually. Disable this before setting your shop live to block unauthorized calls from external parties',
     'SHOP_MODULE_blWebhookSendMail'                     => 'Send e-mail to',
     'HELP_MODULE_blWebhookSendMail'                     => 'Notification / Webhook URL execution messages will be sent to this e-mail',
-    'SHOP_MODULE_sWebhooksUrl'                          => 'Notification / Webhook URL'];
+    'SHOP_MODULE_sWebhooksUrl'                          => 'Notification / Webhook URL',
+    'SHOP_MODULE_GROUP_novalnetPaymentSettingsInvoice'  => 'Invoice',
+    'SHOP_MODULE_novalnetInvoiceTestMode'              => 'Test Mode',
+    'SHOP_MODULE_novalnetInvoiceDueDate'               => 'Due Date',
+    'SHOP_MODULE_novalnetInvoicePaymentAction'         => 'Payment Action',
+    'SHOP_MODULE_GROUP_novalnetPaymentSettingsPaypal'  => 'PayPal',
+    'SHOP_MODULE_novalnetPaypalTestMode'              => 'Test Mode',
+    'SHOP_MODULE_novalnetPaypalPaymentAction'         => 'Payment Action'
+    ];
