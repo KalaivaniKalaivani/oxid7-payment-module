@@ -24,7 +24,7 @@ class Events
     /**
      * Method to be called when the plugin is deactivated
      */
-    public function deactivate()
+    public static function onDeactivate(): void
     {
         $oPayment = oxNew(Payment::class);
         $aPayments = ['novalnetinvoice', 'novalnetpaypal'];
